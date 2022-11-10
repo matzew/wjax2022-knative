@@ -1,0 +1,78 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: dls-receiver
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/window: "6s"
+    spec:
+      containers:
+      - image: quay.io/openshift-knative/knative-eventing-sources-event-display
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: dls-receiver
+# spec:
+#   selector:
+#     app: dls-receiver
+#   ports:
+#     - port: 80
+#       protocol: TCP
+#       targetPort: dls-receiver
+#       name: http
+
+# ---
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: dls-receiver
+#   labels:
+#     app: dls-receiver
+# spec:
+#   containers:
+#   - name: dls-receiver
+#     image: quay.io/openshift-knative/knative-eventing-sources-event-display
+#     imagePullPolicy: Always
+#     ports:
+#     - containerPort: 8080
+#       protocol: TCP
+#       name: dls-receiver

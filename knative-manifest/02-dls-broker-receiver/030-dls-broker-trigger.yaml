@@ -1,0 +1,16 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: trigger-for-dls-broker
+spec:
+  broker: my-dls-kafka-broker
+  filter:
+    attributes:
+      knativeerrorcode: "422"
+      workerhints: "Patch your data model"
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dls-receiver
+

@@ -1,0 +1,28 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: trigger-one
+spec:
+  broker: my-demo-kafka-broker
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: error-sender
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: trigger-two
+spec:
+  broker: my-demo-kafka-broker
+  # filter:
+  #   attributes:
+  #     type: com.wjax
+  #     smartevent: foo
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: event-receiver
+

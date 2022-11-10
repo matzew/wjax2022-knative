@@ -1,0 +1,89 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: error-sender
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"  
+        autoscaling.knative.dev/max-scale: "1"  
+    spec:
+      containers:
+      - image: docker.io/matzew/error-app:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: error-sender
+# spec:
+#   selector:
+#     app: error-sender
+#   ports:
+#     - port: 80
+#       protocol: TCP
+#       targetPort: error-sender
+#       name: http
+
+# ---
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: error-sender
+#   labels:
+#     app: error-sender
+# spec:
+#   containers:
+#   - name: error-sender
+#     image: docker.io/matzew/error-app:latest
+#     imagePullPolicy: Always
+#     ports:
+#     - containerPort: 8080
+#       protocol: TCP
+#       name: error-sender
